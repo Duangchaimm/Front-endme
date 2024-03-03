@@ -17,52 +17,53 @@ router.get('/',async (req,res)=>{
   router.get('/create',async (req,res)=>{
     try{
         
-      res.render("Admin/admin/create");
+      res.render("Admin/user/create");
   
     } catch(err){
       res.status(500).send(err);
     }
   })
 
-  router.get('/update/:id',async (req,res)=>{
-    try{
-        let response=await axios.get(`${base_url}/Admin/${req.params.id}`)
-      res.render("Admin/admin/update", {data:response.data});
-  
-    } catch(err){
-      res.status(500).send(err);
-    }
-  })
+
 
   router.post('/create', async (req, res) => {
     try {
         const data = {
-          admin_name: req.body.admin_name,
-          admin_username: req.body.admin_username,
-          admin_password: req.body.admin_password,
-          admin_email: req.body.admin_email,
-          admin_phone: req.body.admin_phone,
+          Name: req.body.Name,
+          phone: req.body.phone,
+          email: req.body.email,
+          password: req.body.password,
         };
-        await axios.post(base_url + `/Admin`, data); 
-        res.redirect("/Admin");
+        await axios.post(base_url + `/users`, data); 
+        res.redirect("/Admin/user");
     } catch (error) {
         res.status(500).send(error);
     }
   });
 
 
+  router.get('/update/:id',async (req,res)=>{
+    try{
+        let response=await axios.get(`${base_url}/users/${req.params.id}`)
+        // console.log(response);
+      res.render("Admin/user/update", {data:response.data});
+  
+    } catch(err){
+      res.status(500).send(err);
+    }
+  })
+
   
   router.post('/update', async (req, res) => {
     try {
         const data = {
-          admin_name: req.body.admin_name,
-          admin_username: req.body.admin_username,
-          admin_password: req.body.admin_password,
-          admin_email: req.body.admin_email,
-          admin_phone: req.body.admin_phone,
-        };
-        await axios.put(base_url + `/Admin/${req.body.admin_id}`, data); 
-        res.redirect("/Admin");
+            Name: req.body.Name,
+            phone: req.body.phone,
+            email: req.body.email,
+            password: req.body.password,
+          };
+        await axios.put(base_url + `/users/${req.body.User_id}`, data); 
+        res.redirect("/Admin/user");
     } catch (error) {
         res.status(500).send(error);
     }
@@ -82,9 +83,9 @@ router.get('/',async (req,res)=>{
 
   router.get('/delete/:admin_id', async (req, res) => {
     try {
-         const response =  await axios.delete(base_url + `/Admin/${req.params.admin_id}`); 
+         const response =  await axios.delete(base_url + `/users/${req.params.admin_id}`); 
         //  res.statu
-        res.redirect("/Admin");
+        res.redirect("/Admin/user");
     } catch (error) {
         res.status(500).send(error);
     }

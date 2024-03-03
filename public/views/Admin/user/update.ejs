@@ -17,41 +17,39 @@
       
       <ul class="menu">
         <li><a href="../../../Admin">Home</a></li>
-        <li><a href="../../user">Users</a></li>
+
+        <!-- <li><a href="../User">Users</a></li> -->
         <li><a href="../../roomType">RoomType</a></li>
         <li><a href="#">Rooms</a></li>
         <li><a href="#">Bookings</a></li>
-        <!-- <li><a href="../admin">Admin</a></li> -->
+        <li><a href="../../admin">Admin</a></li>
       </ul>
     </div>
   </div>
 <!-- create -->
   <div class="form-container">
-    <h1>CREATE ADMINS</h1>
-    <form method="post" action="./create">
+    <h1>EDIT USERS</h1>
+    <form method="post" action="./">
 
+    
+        <input type="hidden" id="*" name="User_id" value="<%= data.User_id %>">
+
+      <label for="*">Name</label>
+      <input type="*" id="*" name="Name" value="<%= data.Name %>">
+
+      <label for="*">Phone</label>
+      <input type="*" id="*" name="phone" value="<%= data.phone %>">
+
+      <label for="*">Email</label>
+      <input type="*" id="*" name="email" value="<%= data.email %>">
+
+      <label for="*">Password</label>
+      <input type="*" id="*" name="password" value="<%= data.password %>">
+      <label for="*"></label>
+
+      <button type="submit" id="*">Save <% data.length %>  </button>
   
-        <label for="*">Name</label>
-        <input type="*" id="*" name="admin_name" >
-  
-        <label for="*">Username</label>
-        <input type="*" id="*" name="admin_username" >
-  
-        <label for="*">Phone</label>
-        <input type="*" id="*" name="admin_phone" >
-  
-        <label for="*">Email</label>
-        <input type="*" id="*" name="admin_email" >
-  
-        <label for="*">Password</label>
-        <input type="*" id="*" name="admin_password" >
-  
-        <label for="*"></label>
-   
-  
-        <button type="submit" id="*">Create</button>
     </form>
-    <!-- <button id="*">Create</button> -->
 
   </div>
 </body>

@@ -14,12 +14,12 @@
       </div>
       
       <ul class="menu">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="Users.html">Users</a></li>
-        <li><a href="RoomType.html">RoomType</a></li>
-        <li><a href="Rooms.html">Rooms</a></li>
-        <li><a href="Bookings.html">Bookings</a></li>
-        <li><a href="Admin.html">Admin</a></li>
+        <li><a href="../../Admin">Home</a></li>
+        <!-- <li><a href="./User">Users</a></li> -->
+        <li><a href="./roomType">RoomType</a></li>
+        <li><a href="#">Rooms</a></li>
+        <li><a href="#">Bookings</a></li>
+        <li><a href="./admin">Admin</a></li>
       </ul>
     </div>
   </div>
@@ -56,26 +56,20 @@
                     <!-- <a href="./admin/<%= data[i].admin_id %>">View</a>
                     <a href="./admin/update/<%= data[i].admin_id %>">Edit</a>
                     <a href="./admin/delete/<%= data[i].admin_id %>">Delete</a> -->
-                    <button onclick="location.href='./Admin/user/update/<%= data[i].User_id %>';">Edit</button>
-                    <button onclick="location.href='./Admin/user/delete/<%= data[i].User_id %>';">Delect</button></td>
+                    <button onclick="location.href='./user/update/<%= data[i].User_id %>';">Edit</button>
+                    <button onclick="location.href='./delete/<%= data[i].User_id %>';">Delect</button></td>
                 </td>
             </tr>
             <% } %>
         <!-- Data -->
             <tr>
-              <td>Data 1</td>
-              <td>Data 2</td>
-              <td>Data 3</td>
-              <td>Data 4</td>
-              <td>Data 5</td>
-            <td><button onclick="location.href='edit_users.html';">Edit</button>
-           <button onclick="location.href='*';">Delect</button></td>
-            </tr>
+           
     </table>
   <!-- ปุ่ม -->
   <div class="button-container">
-    <button onclick="location.href='create_users.html';">Create</button>
-    <button onclick="location.href='home.html';">Back</button>
+    <button onclick="location.href='../../Admin/user/create';">Create</button>
+    <button onclick="location.href='../Admin';">Back</button>
+
   </div>
 </div>
 </body>
