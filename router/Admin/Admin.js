@@ -45,7 +45,7 @@ router.get('/',async (req,res)=>{
           admin_phone: req.body.admin_phone,
         };
         await axios.post(base_url + `/Admin`, data); 
-        res.redirect("/Admin");
+        res.redirect("/Admin/admin");
     } catch (error) {
         res.status(500).send(error);
     }
@@ -62,30 +62,23 @@ router.get('/',async (req,res)=>{
           admin_email: req.body.admin_email,
           admin_phone: req.body.admin_phone,
         };
-        await axios.put(base_url + `/Admin/${req.body.admin_id}`, data); 
-        res.redirect("/Admin");
+        const resp =  await axios.put(base_url + `/Admin/${req.body.admin_id}`, data); 
+        console.log(resp);
+        res.redirect("/Admin/admin");
+
     } catch (error) {
+
         res.status(500).send(error);
     }
   });
-
-  
-
-  router.get('/User',async (req,res)=>{
-    try{
-      res.render("Admin/User/list", { });
-  
-    } catch(err){
-      res.status(500).send(err);
-    }
-  })
   
 
   router.get('/delete/:admin_id', async (req, res) => {
     try {
          const response =  await axios.delete(base_url + `/Admin/${req.params.admin_id}`); 
         //  res.statu
-        res.redirect("/Admin");
+        res.redirect("/Admin/admin");
+
     } catch (error) {
         res.status(500).send(error);
     }
