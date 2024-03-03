@@ -33,7 +33,7 @@ app.get("/Admin", async (req, res) => {
 
 app.use('/Admin/admin',Admin)
 app.use('/Admin/user',adminUser)
-//--------------------------Room--------------------------------------------
+
 
   
 app.listen(5500 , () => {
