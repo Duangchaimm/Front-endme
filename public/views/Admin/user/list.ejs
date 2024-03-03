@@ -32,6 +32,7 @@
     <table>
       <thead>
         <tr>
+          <th>No</th>
           <th>UserID</th>
           <th>Username</th>
           <th>Phone</th>
@@ -41,6 +42,25 @@
         </tr>
       </thead>
       <tbody>
+
+        <% for (var i = 0; i < data.length; i++) { %>
+            <tr>
+                <td><%= i +1%></td>
+                <td><%= data[i].User_id %></td>
+                <td><%= data[i].Name %></td>
+                <td><%= data[i].phone %></td>
+                <td><%= data[i].email %></td>
+                <td><%= data[i].password %></td>
+               
+                <td>
+                    <!-- <a href="./admin/<%= data[i].admin_id %>">View</a>
+                    <a href="./admin/update/<%= data[i].admin_id %>">Edit</a>
+                    <a href="./admin/delete/<%= data[i].admin_id %>">Delete</a> -->
+                    <button onclick="location.href='./Admin/user/update/<%= data[i].User_id %>';">Edit</button>
+                    <button onclick="location.href='./Admin/user/delete/<%= data[i].User_id %>';">Delect</button></td>
+                </td>
+            </tr>
+            <% } %>
         <!-- Data -->
             <tr>
               <td>Data 1</td>
