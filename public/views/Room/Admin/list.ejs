@@ -34,7 +34,8 @@
           <th>No</th>
           <th>RoomID</th>
           <th>TypeID</th>
-          <th>TypeName</th>
+          <!-- <th>TypeName</th> -->
+          <th>Room quantity</th>
           <th>Price</th>
           <th>Action</th>
         </tr>
@@ -47,7 +48,8 @@
                 <td><%= i +1%></td>
                 <td><%= data[i].Room_id %></td>
                 <td><%= data[i].Type_id %></td>
-                <td><%= data[i].Type_Name %></td>
+                <!-- <td><%= data[i].Type_Name %></td> -->
+                <td><%= data[i].Room_quantity %></td>
                 <td><%= data[i].price %></td>
                 
                 <td>
@@ -73,7 +75,7 @@
     </table>
   <!-- ปุ่ม -->
   <div class="button-container">
-    <button onclick="location.href='create_room.html';">Create</button>
+    <button onclick="location.href='../../create';">Create</button>
     <button onclick="location.href='home.html';">Back</button>
   </div>
 </div>

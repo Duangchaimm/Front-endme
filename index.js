@@ -13,7 +13,7 @@ const session = require('express-session');
 const User = require('./router/User/user')
 const { log } = require('console');
 
-const Room = require('./router/Admin/Rooms')
+const Room = require('./router/Admin/Room')
 
 const base_url = "http://localhost:3000"
 
