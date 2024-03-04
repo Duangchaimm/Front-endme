@@ -8,7 +8,7 @@ const Booking = require('./router/Booking')
 const Admin = require('./router/Admin/Admin')
 const adminUser = require('./router/Admin/Users')
 const adminRommType = require('./router/Admin/RoomType')
-
+const Room = require('./router/Admin/Rooms')
 
 const base_url = "http://localhost:3000"
 
@@ -34,11 +34,8 @@ app.get("/Admin", async (req, res) => {
 
 app.use('/Admin/admin',Admin)
 app.use('/Admin/user',adminUser)
-
-
-
+app.use('/Admin/Room',Room)
 app.use('/Admin/roomType',adminRommType)
-
 
   
 app.listen(5500 , () => {
