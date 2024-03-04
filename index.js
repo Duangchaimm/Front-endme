@@ -8,9 +8,20 @@ const Booking = require('./router/Booking')
 const Admin = require('./router/Admin/Admin')
 const adminUser = require('./router/Admin/Users')
 const adminRommType = require('./router/Admin/RoomType')
+const session = require('express-session');
+
+const User = require('./router/User/user')
+const { log } = require('console');
 
 
 const base_url = "http://localhost:3000"
+
+const sessionConfig = {
+    secret: 'secret',
+    resave: true, // บันทึก session ทุกครั้งที่มีการร้องขอ
+    saveUninitialized: true, // บันทึก session ทุกครั้งที่มีการร้องขอ โดยไม่คำนึงว่า session จะมีข้อมูลหรือไม่
+    maxAge: 3600,
+  };
 
 app.set("views" , path.join(__dirname , "/public/views"))
 app.set("view engine" , "ejs")
@@ -20,17 +31,48 @@ app.use(bodyParser.urlencoded({ extended : false}))
 app.use(express.static(__dirname + "/public"))
 //-------------------------------------Booking---------------------------------------
 
+app.use(session(sessionConfig));
 
 app.use('/Booking', Booking)
 
-app.get("/Admin", async (req, res) => {
+const MiddlewareAdmin = (req, res, next) => {
+    if(req.session.admin_id == undefined){
+        res.render("Admin/login", {});
+    }else{
+        next();
+    }
+};
+
+app.get("/Admin", MiddlewareAdmin,  async (req, res) => {
   try {
-   
       res.render("Admin/index", {});
   } catch(err) {
       res.status(500).send(err);
   }
 });
+app.get("/Admin/login",async (req, res) => {
+    res.render("Admin/login", {});
+})
+
+app.post("/Admin/login", async (req,res)=>{
+    try {
+        const data = {
+          admin_username: req.body.admin_username,
+          admin_password: req.body.admin_password,
+        };
+        const resp =   await axios.post(`${base_url}/Admin/login`, data); 
+        if(resp.data.status){
+            req.session.admin_username = resp.data.data.admin_username
+            req.session.admin_id = resp.data.data.admin_id
+            req.session.admin_name = resp.data.data.admin_name
+            res.redirect("/Admin");
+        }else{
+            res.redirect("/Admin");
+        }
+    } catch (error) {
+        res.status(500).send(error);
+    }
+})
 
 app.use('/Admin/admin',Admin)
 app.use('/Admin/user',adminUser)
@@ -40,7 +82,9 @@ app.use('/Admin/user',adminUser)
 app.use('/Admin/roomType',adminRommType)
 
 
-  
+
+app.use('/User',User)
+
 app.listen(5500 , () => {
     console.log("Server start on port 5500")
 })

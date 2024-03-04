@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking hotel</title>
+  <link rel="stylesheet" type="text/css" href="../../css/style_user.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="logo">
+        <h1><span>🏬</span> Booking hotel</h1>
+      </div>
+      
+      <ul class="menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="*">Rooms</a></li>
+        <li><a href="*">Booking</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- box -->
+<div class="container">
+
+    <% for (var i = 0; i < data.length; i++) { %>
+        <div class="image-box">
+            <!-- <img src="เตียงคู่.jpg" alt="Your Image"> -->
+            <div class="info">
+              <h2><%= data[i].Type_Name %></h2>
+              <button onclick="location.href='Admin.html';"> Booking </button>
+            </div>
+          </div>
+    
+    <% } %>
+  </div>
+  
