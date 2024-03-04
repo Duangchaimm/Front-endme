@@ -13,6 +13,7 @@ const session = require('express-session');
 const User = require('./router/User/user')
 const { log } = require('console');
 
+const Room = require('./router/Admin/Rooms')
 
 const base_url = "http://localhost:3000"
 
@@ -76,9 +77,7 @@ app.post("/Admin/login", async (req,res)=>{
 
 app.use('/Admin/admin',Admin)
 app.use('/Admin/user',adminUser)
-
-
-
+app.use('/Admin/Room',Room)
 app.use('/Admin/roomType',adminRommType)
 
 
