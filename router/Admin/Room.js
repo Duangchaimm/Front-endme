@@ -18,7 +18,7 @@ router.get('/',async (req,res)=>{
   router.get('/create',async (req,res)=>{
     try{
         
-      res.render("Admin/Room/create");
+      res.render("Room/Admin/create");
   
     } catch(err){
       res.status(500).send(err);
@@ -48,7 +48,7 @@ router.get('/',async (req,res)=>{
     try{
         let response=await axios.get(`${base_url}/${req.params.id}`)
         // console.log(response);
-      res.render("Admin/Room/update", {data:response.data});
+      res.render("Room/Admin/update", {data:response.data});
   
     } catch(err){
       res.status(500).send(err);

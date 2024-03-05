@@ -17,9 +17,8 @@
       
       <ul class="menu">
         <li><a href="../../../Admin">Home</a></li>
-
-        <!-- <li><a href="../User">Users</a></li> -->
-        <li><a href="../../roomType">RoomType</a></li>
+        <li><a href="../../user">Users</a></li>
+        <!-- <li><a href="../roomType">RoomType</a></li> -->
         <li><a href="#">Rooms</a></li>
         <li><a href="#">Bookings</a></li>
         <li><a href="../../admin">Admin</a></li>
@@ -28,26 +27,21 @@
   </div>
 <!-- create -->
   <div class="form-container">
-    <h1>CREATE Room</h1>
-    <form method="post" action="./update">
+    <h1>EDIT ROOM TYPE </h1>
+    <form method="post" action="./">
 
-    
-
-      <label for="*">TypeID</label>
-      <select name="Type_id" id="">
-        <option value="">222</option>
-      </select>
-      <!-- <input type="*" id="*" name="Name"> -->
-
-      <label for="*">Room quantity</label>
-      <input type="*" id="*" name="phone">
-
-      <label for="*">Price</label>
-      <input type="*" id="*" name="email">
+        <input type="hidden" id="*" name="Room_id"  value="<%= data.Room_id %>">
+     
+      <label for="*">Typeid</label>
+      <input type="*" id="*" name="Type_id" value="<%= data.Type_id %>">
+      <label for="*">Roomquantity</label>
+      <input type="*" id="*" name="Room_quantity" value="<%= data.Room_quantity %>">
+      <label for="*">price</label>
+      <input type="*" id="*" name="price" value="<%= data.price %>">
       <label for="*"></label>
 
-      <button type="submit" id="*">Create</button>
-  
+      <button type="submit" id="*">Save</button>
+
     </form>
 
   </div>
