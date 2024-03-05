@@ -61,7 +61,7 @@ router.get('/',async (req,res)=>{
         const data = {
           Room_id: req.body.Room_id,
           Type_id: req.body.Type_id,
-          Type_Name: req.body.Type_Name,
+          Room_quantity: req.body.Room_quantity,
           price: req.body.price,
           };
         const resp =  await axios.put(base_url + `/${req.body.Room_id}`, data); 
