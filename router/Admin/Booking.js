@@ -49,9 +49,9 @@ router.get('/',async (req,res)=>{
 
   router.get('/update/:id',async (req,res)=>{
     try{
-        let response=await axios.get(`${base_url}/${req.params.id}`)
+        let response=await axios.get(`${base_url}/Booking${req.params.id}`)
         // console.log(response);
-      res.render("Room/Admin/update", {data:response.data});
+      res.render("Admin/Booking/update", {data:response.data});
   
     } catch(err){
       res.status(500).send(err);
@@ -65,7 +65,7 @@ router.get('/',async (req,res)=>{
           Type_Name: req.body.Type_Name,
           price: req.body.price,
           };
-        const resp =  await axios.put(base_url + `/${req.body.Room_id}`, data); 
+        const resp =  await axios.put(base_url + `/Booking${req.body.Room_id}`, data); 
         // console.log(resp);
         res.redirect("/Admin/Room");
 
@@ -78,8 +78,8 @@ router.get('/',async (req,res)=>{
 
   router.get('/delete/:id', async (req, res) => {
     try {
-         const response =  await axios.delete(base_url + `/${req.params.id}`); 
-        res.redirect("/Admin/Room");
+         const response =  await axios.delete(base_url + `/Booking${req.params.id}`); 
+        res.redirect("/Admin/Booking");
 
     } catch (error) {
         res.status(500).send(error);
