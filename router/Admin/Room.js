@@ -17,8 +17,9 @@ router.get('/',async (req,res)=>{
 
   router.get('/create',async (req,res)=>{
     try{
-        
-      res.render("Room/Admin/create");
+      
+      let response=await axios.get(`${base_url}Type`)
+      res.render("Room/Admin/create",{type_data:response.data});
   
     } catch(err){
       res.status(500).send(err);
@@ -27,7 +28,7 @@ router.get('/',async (req,res)=>{
 
  
 
-  router.post('/Room', async (req, res) => {
+  router.post('/create', async (req, res) => {
     try {
         const data = {
           Room_id: req.body.Room_id,

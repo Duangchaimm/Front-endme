@@ -29,13 +29,16 @@
 <!-- create -->
   <div class="form-container">
     <h1>CREATE Room</h1>
-    <form method="post" action="./update">
+    <form method="post" action="./create">
 
     
 
       <label for="*">TypeID</label>
       <select name="Type_id" id="">
-        <option value="">222</option>
+        <% for (var i = 0; i < type_data.length; i++) { %>
+          <option value="<%= type_data[i].Type_id %>"><%= type_data[i].Type_Name %></option>
+
+        <% } %>
       </select>
       <!-- <input type="*" id="*" name="Name"> -->
 
