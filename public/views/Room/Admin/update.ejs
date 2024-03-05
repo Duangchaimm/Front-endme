@@ -17,10 +17,10 @@
       
       <ul class="menu">
         <li><a href="../../../Admin">Home</a></li>
-        <li><a href="../../user">Users</a></li>
-        <!-- <li><a href="../roomType">RoomType</a></li> -->
-        <li><a href="#">Rooms</a></li>
-        <li><a href="#">Bookings</a></li>
+        <li><a href="../../User">Users</a></li>
+        <li><a href="../../roomType">RoomType</a></li>
+        <li><a href="../../admin">Admin</a></li>
+        <li><a href="../../Booking">Bookings</a></li>
         <li><a href="../../admin">Admin</a></li>
       </ul>
     </div>
@@ -31,9 +31,16 @@
     <form method="post" action="./">
 
         <input type="hidden" id="*" name="Room_id"  value="<%= data.Room_id %>">
-     
-      <label for="*">Typeid</label>
-      <input type="*" id="*" name="Type_id" value="<%= data.Type_id %>">
+        <label for="*">Type Room</label>
+        <select name="Type_id" id="">
+          <% for (var i = 0; i < type_data.length; i++) { 
+            var selected = (type_data[i].Type_id == data.Type_id ) ? "selected" : "";
+            %>
+            <option <%=selected %> value="<%= type_data[i].Type_id %>"><%= type_data[i].Type_Name %></option>
+          <% } %>
+        </select>
+      <!-- <label for="*">Typeid</label>
+      <input type="*" id="*" name="Type_id" value="<%= data.Type_id %>"> -->
       <label for="*">Roomquantity</label>
       <input type="*" id="*" name="Room_quantity" value="<%= data.Room_quantity %>">
       <label for="*">price</label>

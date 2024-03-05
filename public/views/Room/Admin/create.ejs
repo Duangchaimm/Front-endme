@@ -17,11 +17,10 @@
       
       <ul class="menu">
         <li><a href="../../../Admin">Home</a></li>
-
-        <!-- <li><a href="../User">Users</a></li> -->
-        <li><a href="../../roomType">RoomType</a></li>
-        <li><a href="#">Rooms</a></li>
-        <li><a href="#">Bookings</a></li>
+        <li><a href="../User">Users</a></li>
+        <li><a href="../roomType">RoomType</a></li>
+        <li><a href="../admin">Admin</a></li>
+        <li><a href="../Booking">Bookings</a></li>
         <li><a href="../../admin">Admin</a></li>
       </ul>
     </div>
@@ -37,7 +36,6 @@
       <select name="Type_id" id="">
         <% for (var i = 0; i < type_data.length; i++) { %>
           <option value="<%= type_data[i].Type_id %>"><%= type_data[i].Type_Name %></option>
-
         <% } %>
       </select>
       <!-- <input type="*" id="*" name="Name"> -->

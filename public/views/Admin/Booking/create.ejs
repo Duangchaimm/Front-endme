@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking hotel</title>
+  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+  <link rel="stylesheet" type="text/css" href="../../../css/style_custom.css">
+
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="logo">
+        <h1><span>🏬</span> Booking hotel</h1>
+      </div>
+      
+      <ul class="menu">
+        <li><a href="../../Admin">Home</a></li>
+        <li><a href="../user">Users</a></li>
+        <li><a href="../roomType">RoomType</a></li>
+        <li><a href="../Room">Rooms</a></li>
+        <!-- <li><a href="../Booking">Bookings</a></li> -->
+        <li><a href="../admin">Admin</a></li>
+      </ul>
+    </div>
+  </div>
+<!-- create -->
+  <div class="form-container">
+    <h1>Create  Booking</h1>
+    <form method="post" action="./create">
+
+      
+     
+      <label for="*">User</label>
+      
+      <select name="User_id" id="">
+        <% for (var i = 0; i < user_data.length; i++) {  %>
+          <option value="<%= user_data[i].User_id %>"><%= user_data[i].Name %></option>
+        <% } %>
+      </select>
+      
+      <label for="*">Type Room</label>
+      <select name="Type_id" id="">
+        <% for (var i = 0; i < type_data.length; i++) {  %>
+          <option value="<%= type_data[i].Type_id %>"><%= type_data[i].Type_Name %></option>
+        <% } %>
+      </select>
+      <label for="*">RoomID</label>
+
+      <select name="Room_id" id="">
+        <% for (var i = 0; i < room_data.length; i++) { 
+          %>
+          <option  value="<%= room_data[i].Room_id %>"><%= room_data[i].Room_id %></option>
+        <% } %>
+      </select>
+
+     
+      <label for="*">booking_quautity</label>
+      <input type="number" id="*" name="booking_quautity" >
+      <label for="*">Date</label>
+      <input type="date" id="*" name="date_checking">
+
+      <label for="*"></label>
+
+      <button type="submit" id="*">Save</button>
+
+    </form>
+
+  </div>
+</body>
+</html>

@@ -18,8 +18,11 @@ router.get('/',async (req,res)=>{
   router.get('/create',async (req,res)=>{
     try{
       
-      let response=await axios.get(`${base_url}/Room`)
-      res.render("Admin/Booking/create",{type_data:response.data});
+      // let response=await axios.get(`${base_url}/Room`)
+      let type_data = await axios.get(`${base_url}/RoomType`)
+      let room_data = await axios.get(`${base_url}/Room`)
+      let user_data = await axios.get(`${base_url}/users`)
+      res.render("Admin/Booking/create",{type_data:type_data.data,room_data:room_data.data,user_data:user_data.data});
   
     } catch(err){
       res.status(500).send(err);
@@ -31,7 +34,7 @@ router.get('/',async (req,res)=>{
   router.post('/create', async (req, res) => {
     try {
         const data = {
-            Booking_id: req.body.Booking_id,
+            // Booking_id: req.body.Booking_id,
             User_id: req.body.User_id,
             Type_id: req.body.Type_id,
             Room_id: req.body.Room_id,
@@ -49,9 +52,12 @@ router.get('/',async (req,res)=>{
 
   router.get('/update/:id',async (req,res)=>{
     try{
-        let response=await axios.get(`${base_url}/Booking${req.params.id}`)
+        let response=await axios.get(`${base_url}/Booking/${req.params.id}`)
+      let type_data = await axios.get(`${base_url}/RoomType`)
+      let room_data = await axios.get(`${base_url}/Room`)
+        
         // console.log(response);
-      res.render("Admin/Booking/update", {data:response.data});
+      res.render("Admin/Booking/update", {data:response.data,type_data:type_data.data,room_data:room_data.data});
   
     } catch(err){
       res.status(500).send(err);
@@ -60,14 +66,15 @@ router.get('/',async (req,res)=>{
   router.post('/update', async (req, res) => {
     try {
         const data = {
-          Room_id: req.body.Room_id,
+          User_id: req.body.User_id,
           Type_id: req.body.Type_id,
-          Type_Name: req.body.Type_Name,
-          price: req.body.price,
+          Room_id: req.body.Room_id,
+          booking_quautity: req.body.booking_quautity,
+          date_checking: req.body.date_checking,
           };
-        const resp =  await axios.put(base_url + `/Booking${req.body.Room_id}`, data); 
+        const resp =  await axios.put(base_url + `/Booking/${req.body.Booking_id}`, data); 
         // console.log(resp);
-        res.redirect("/Admin/Room");
+        res.redirect("/Admin/Booking");
 
     } catch (error) {
 
@@ -78,7 +85,7 @@ router.get('/',async (req,res)=>{
 
   router.get('/delete/:id', async (req, res) => {
     try {
-         const response =  await axios.delete(base_url + `/Booking${req.params.id}`); 
+         const response =  await axios.delete(base_url + `/Booking/${req.params.id}`); 
         res.redirect("/Admin/Booking");
 
     } catch (error) {

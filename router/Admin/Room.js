@@ -48,8 +48,9 @@ router.get('/',async (req,res)=>{
   router.get('/update/:id',async (req,res)=>{
     try{
         let response=await axios.get(`${base_url}/${req.params.id}`)
+        let type_data=await axios.get(`${base_url}Type`)
         // console.log(response);
-      res.render("Room/Admin/update", {data:response.data});
+      res.render("Room/Admin/update", {data:response.data,type_data:type_data.data});
   
     } catch(err){
       res.status(500).send(err);

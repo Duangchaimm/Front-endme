@@ -10,6 +10,7 @@ const adminUser = require('./router/Admin/Users')
 const adminRommType = require('./router/Admin/RoomType')
 const session = require('express-session');
 const AdminBooking = require('./router/Admin/Booking')
+const UserBooking = require('./router/User/booking')
 
 
 const User = require('./router/User/user')
@@ -84,8 +85,16 @@ app.use('/Admin/roomType',adminRommType)
 app.use('/Admin/Booking',AdminBooking)
 
 
+const MiddlewareUser = (req, res, next) => {
+    if(req.session.User_id == undefined){
+        res.redirect("/User");
 
+    }else{
+        next();
+    }
+};
 app.use('/User',User)
+app.use('/User/Booking',  MiddlewareUser, UserBooking)
 
 app.listen(5500 , () => {
     console.log("Server start on port 5500")
