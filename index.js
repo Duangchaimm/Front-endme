@@ -9,6 +9,8 @@ const Admin = require('./router/Admin/Admin')
 const adminUser = require('./router/Admin/Users')
 const adminRommType = require('./router/Admin/RoomType')
 const session = require('express-session');
+const AdminBooking = require('./router/Admin/Booking')
+
 
 const User = require('./router/User/user')
 const { log } = require('console');
@@ -79,6 +81,7 @@ app.use('/Admin/admin',Admin)
 app.use('/Admin/user',adminUser)
 app.use('/Admin/Room',Room)
 app.use('/Admin/roomType',adminRommType)
+app.use('/Admin/Booking',AdminBooking)
 
 
 

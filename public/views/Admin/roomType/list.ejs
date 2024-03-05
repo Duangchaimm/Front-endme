@@ -34,14 +34,17 @@
         <tr>
           <th>No</th>
           <th>Typename</th>
+          <th> Type quantity</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <% for (var i = 0; i < data.length; i++) { %>
             <tr>
+
                 <td><%= i +1%></td>
                 <td><%= data[i].Type_Name %></td>
+                <td><%= data[i]. Type_quantity %></td> 
                 <td>
                     <button onclick="location.href='../../Admin/roomType/update/<%= data[i].Type_id %>';">Edit</button>
                     <button onclick="location.href='../../Admin/roomType/delete/<%= data[i].Type_id %>';">Delect</button></td>
