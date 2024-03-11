@@ -15,12 +15,12 @@
       </div>
       
       <ul class="menu">
-        <li><a href="../../Admin">Home</a></li>
-        <li><a href="./user">Users</a></li>
-        <!-- <li><a href="./roomType">RoomType</a></li> -->
-        <li><a href="#">Rooms</a></li>
-        <li><a href="#">Bookings</a></li>
-        <li><a href="./admin">Admin</a></li>
+        <li><a href="./Admin">Home</a></li>
+        <li><a href="./Admin/user">Users</a></li>
+        <li><a href="./Admin/roomType">RoomType</a></li>
+        <li><a href="./Admin/Room">Rooms</a></li>
+        <li><a href="./Admin/Booking">Bookings</a></li>
+        <li><a href="./Admin/admin/">Admin</a></li>
       </ul>
     </div>
   </div>
@@ -33,6 +33,7 @@
       <thead>
         <tr>
           <th>No</th>
+          <th>TypeID</th>
           <th>Typename</th>
           <th> Type quantity</th>
           <th>Action</th>
@@ -43,6 +44,7 @@
             <tr>
 
                 <td><%= i +1%></td>
+                <td><%= data[i].Type_id %></td>
                 <td><%= data[i].Type_Name %></td>
                 <td><%= data[i]. Type_quantity %></td> 
                 <td>

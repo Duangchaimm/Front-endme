@@ -16,12 +16,12 @@
       </div>
       
       <ul class="menu">
-        <li><a href="../../Admin">Home</a></li>
-        <li><a href="../user">Users</a></li>
-        <li><a href="../roomType">RoomType</a></li>
-        <li><a href="../Room">Rooms</a></li>
-        <!-- <li><a href="../Booking">Bookings</a></li> -->
-        <li><a href="../admin">Admin</a></li>
+        <li><a href="./Admin">Home</a></li>
+        <li><a href="./Admin/user">Users</a></li>
+        <li><a href="./Admin/roomType">RoomType</a></li>
+        <li><a href="./Admin/Room">Rooms</a></li>
+        <li><a href="./Admin/Booking">Bookings</a></li>
+        <li><a href="./Admin/admin/">Admin</a></li>
       </ul>
     </div>
   </div>
@@ -50,16 +50,15 @@
 
       <select name="Room_id" id="">
         <% for (var i = 0; i < room_data.length; i++) { 
-          %>
-          <option  value="<%= room_data[i].Room_id %>"><%= room_data[i].Room_id %></option>
+          %> 
+           <option  value="<%= room_data[i].Room_id %>"><%= room_data[i].Room_id %></option>
         <% } %>
       </select>
 
-     
-      <label for="*">booking_quautity</label>
-      <input type="number" id="*" name="booking_quautity" >
-      <label for="*">Date</label>
-      <input type="date" id="*" name="date_checking">
+      <label for="*">checkin</label>
+      <input type="date" id="*" name="date_checkin">
+      <label for="*">checkin</label>
+      <input type="date" id="*" name="date_checkout">
 
       <label for="*"></label>
 

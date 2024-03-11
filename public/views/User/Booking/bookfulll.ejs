@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    .sold-out {
+      color: red;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .product-details {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-details">
+    <h1>Room <%= data.Room_id %></h1>
+    <!-- <p>Description of the product goes here.</p> -->
+    
+    <!-- Check if the product is sold out -->
+    <div class="sold-out">
+      <!-- Conditionally show "Sold Out" based on your logic -->
+      <!-- For example, you can use JavaScript to dynamically add or remove this element -->
+      <p>Sold Out</p>
+    </div>
+
+    <a href="./">OK</a>
+    
+    <!-- Other product details go here -->
+  </div>
+</body>
+</html>

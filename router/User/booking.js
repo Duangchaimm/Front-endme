@@ -39,11 +39,19 @@ router.get('/',async (req,res)=>{
             Type_id: req.body.Type_id,
             Room_id: req.body.Room_id,
             booking_quautity: req.body.booking_quautity,
-            date_checking: req.body.date_checking,
+            date_checkin: req.body.date_checkin,
+            date_checkout: req.body.date_checkout,
 
         };
-        await axios.post(`${base_url}/Booking`, data); 
-        res.redirect("/User/Booking");
+        const  response =  await axios.post(`${base_url}/Booking`, data); 
+        console.log(response);
+        if(response.data.status){
+          res.redirect("/User/Booking");
+        }else{
+          res.render("User/Booking/bookfulll", {data:response.data.data});
+        }
+        // await axios.post(`${base_url}/Booking`, data); 
+        // res.redirect("/User/Booking");
     } catch (error) {
         res.status(500).send(error);
     }
@@ -67,10 +75,11 @@ router.get('/',async (req,res)=>{
     try {
         const data = {
           User_id: req.body.User_id,
-          Type_id: req.body.Type_id,
-          Room_id: req.body.Room_id,
-          booking_quautity: req.body.booking_quautity,
-          date_checking: req.body.date_checking,
+            Type_id: req.body.Type_id,
+            Room_id: req.body.Room_id,
+            booking_quautity: req.body.booking_quautity,
+            date_checkin: req.body.date_checkin,
+            date_checkout: req.body.date_checkout,
           };
         const resp =  await axios.put(base_url + `/Booking/${req.body.Booking_id}`, data); 
         // console.log(resp);
@@ -94,4 +103,3 @@ router.get('/',async (req,res)=>{
   });
 
 module.exports =   router
-

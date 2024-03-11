@@ -1,6 +1,7 @@
 const express = require('express')
 const axios = require('axios')
 var bodyParser = require('body-parser')
+const { render } = require('ejs')
 const router = express.Router()
 
 const base_url = "http://localhost:3000"
@@ -39,11 +40,18 @@ router.get('/',async (req,res)=>{
             Type_id: req.body.Type_id,
             Room_id: req.body.Room_id,
             booking_quautity: req.body.booking_quautity,
-            date_checking: req.body.date_checking,
+            date_checkin: req.body.date_checkin,
+            date_checkout: req.body.date_checkout
 
         };
-        await axios.post(`${base_url}/Booking`, data); 
-        res.redirect("/Admin/Booking");
+        
+       const  response =  await axios.post(`${base_url}/Booking`, data); 
+        if(response.data.status){
+          res.redirect("/Admin/Booking");
+        }else{
+          res.render("Admin/Booking/bookfull", {data:response.data.data});
+        }
+
     } catch (error) {
         res.status(500).send(error);
     }
@@ -70,7 +78,8 @@ router.get('/',async (req,res)=>{
           Type_id: req.body.Type_id,
           Room_id: req.body.Room_id,
           booking_quautity: req.body.booking_quautity,
-          date_checking: req.body.date_checking,
+          date_checkin: req.body.date_checkin,
+          date_checkout: req.body.date_checkout,
           };
         const resp =  await axios.put(base_url + `/Booking/${req.body.Booking_id}`, data); 
         // console.log(resp);

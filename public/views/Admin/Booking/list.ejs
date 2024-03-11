@@ -14,12 +14,12 @@
       </div>
       
       <ul class="menu">
-        <li><a href="../../Admin">Home</a></li>
-        <li><a href="./user">Users</a></li>
-        <li><a href="./roomType">RoomType</a></li>
-        <li><a href="./Room">Rooms</a></li>
-        <!-- <li><a href="../Booking">Bookings</a></li> -->
-        <li><a href="./admin">Admin</a></li>
+        <li><a href="./Admin">Home</a></li>
+        <li><a href="./Admin/user">Users</a></li>
+        <li><a href="./Admin/roomType">RoomType</a></li>
+        <li><a href="./Admin/Room">Rooms</a></li>
+        <li><a href="./Admin/Booking">Bookings</a></li>
+        <li><a href="./Admin/admin/">Admin</a></li>
       </ul>
     </div>
   </div>
@@ -37,8 +37,9 @@
           <!-- <th>TypeName</th> -->
           <th>Type Room</th>
           <th>RoomID</th>
-          <th>booking_quautity</th>
-          <th>date_checking</th>
+          <th>date_checkin</th>
+          <th>date_checkout</th>
+
           <th>Action</th>
 
         </tr>
@@ -53,9 +54,10 @@
                 <td><%= data[i].User.Name %></td>
                 <!-- <td><%= data[i].Type_Name %></td> -->
                 <td><%= data[i].RoomType.Type_Name %></td>
-                <td><%= data[i].Room.Room_id %></td>
-                <td><%= data[i].booking_quautity %></td>
-                <td><%= data[i].date_checking %></td>
+                <td><%= data[i].Room_id %></td>
+                <td><%= data[i].date_checkin %></td>
+                <td><%= data[i].date_checkout %></td>
+
                 
                 <td>
                     <!-- <a href="./admin/<%= data[i].admin_id %>">View</a>
