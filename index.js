@@ -18,7 +18,7 @@ const { log } = require('console');
 
 const Room = require('./router/Admin/Room')
 
-const base_url = "https://node58157-env-5982902.proen.app.ruk-com.cloud"
+const base_url = "10.104.15.67:3000"
 
 const sessionConfig = {
     secret: 'secret',
