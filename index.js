@@ -2,7 +2,9 @@ const express = require('express')
 const axios = require('axios')
 var bodyParser = require('body-parser')
 const path = require('path');
-const { env } = require('process');
+// const { env } = require('process');
+require('dotenv').config();
+
 const app = express();
 const Booking = require('./router/Booking')
 const Admin = require('./router/Admin/Admin')
@@ -16,9 +18,12 @@ const UserBooking = require('./router/User/booking')
 const User = require('./router/User/user')
 const { log } = require('console');
 
-const Room = require('./router/Admin/Room')
+const Room = require('./router/Admin/Room');
+// const { env } = require('process');
 
-const base_url = "http://10.104.15.67:3000"
+// const base_url = "http://10.104.15.67:3000"
+const base_url = process.env.API;
+
 
 const sessionConfig = {
     secret: 'secret',
