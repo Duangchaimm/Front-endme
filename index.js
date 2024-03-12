@@ -18,7 +18,7 @@ const { log } = require('console');
 
 const Room = require('./router/Admin/Room')
 
-const base_url = "https://10.104.15.67:3000"
+const base_url = "http://10.104.15.67:3000"
 
 const sessionConfig = {
     secret: 'secret',
