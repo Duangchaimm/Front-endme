@@ -3,7 +3,7 @@ const axios = require('axios')
 var bodyParser = require('body-parser')
 const router = express.Router()
 
-const base_url = "http://localhost:3000/RoomType"
+const base_url = "http://10.104.15.67:3000/RoomType"
 
 router.get('/',async (req,res)=>{
     try{

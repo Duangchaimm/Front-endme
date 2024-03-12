@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 const { render } = require('ejs')
 const router = express.Router()
 
-const base_url = "http://localhost:3000"
+const base_url = "http://10.104.15.67:3000"
 
 router.get('/',async (req,res)=>{
     try{

@@ -3,7 +3,7 @@ const axios = require('axios')
 var bodyParser = require('body-parser')
 const router = express.Router()
 
-const base_url = "http://localhost:3000"
+const base_url = "http://10.104.15.67:3000"
 
 const MiddlewareUser = (req, res, next) => {
     if(req.session.User_id == undefined){
