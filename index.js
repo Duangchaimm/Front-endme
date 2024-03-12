@@ -18,11 +18,11 @@ const { log } = require('console');
 
 const Room = require('./router/Admin/Room')
 
-const base_url = "10.104.15.67:3000"
+const base_url = ""
 
 const sessionConfig = {
     secret: 'secret',
-    resave: true, // บันทึก session ทุกครั้งที่มีการร้องขอ
+    resave: true, // บันhttps://node58157-env-5982902.proen.app.ruk-com.cloudทึก session ทุกครั้งที่มีการร้องขอ
     saveUninitialized: true, // บันทึก session ทุกครั้งที่มีการร้องขอ โดยไม่คำนึงว่า session จะมีข้อมูลหรือไม่
     maxAge: 3600,
   };
