@@ -3,7 +3,7 @@ const axios = require('axios')
 var bodyParser = require('body-parser')
 const router = express.Router()
 
-const base_url = "https://node58157-env-5982902.proen.app.ruk-com.cloud"
+const base_url = "https://10.104.15.67:3000"
 
 router.get('/',async (req,res)=>{
     try{
