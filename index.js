@@ -22,8 +22,11 @@ const Room = require('./router/Admin/Room');
 // const { env } = require('process');
 
 // const base_url = "http://10.104.15.67:3000"
+
+
 const base_url = process.env.API;
 
+console.log(base_url);
 
 const sessionConfig = {
     secret: 'secret',
