@@ -5,8 +5,8 @@ const { render } = require('ejs')
 const router = express.Router()
 require('dotenv').config();
 
-const base_url = "http://10.104.15.67:3000"
-// const base_url = process.env.API;
+//const base_url = "http://10.104.15.67:3000"
+const base_url = process.env.API;
 
 
 router.get('/',async (req,res)=>{
@@ -81,7 +81,7 @@ router.get('/',async (req,res)=>{
           Type_id: req.body.Type_id,
           Room_id: req.body.Room_id,
           booking_quautity: req.body.booking_quautity,
-          date_checkin: req.body.date_checkin,
+          date_checkin: req.body.date_checkin, 
           date_checkout: req.body.date_checkout,
           };
         const resp =  await axios.put(base_url + `/Booking/${req.body.Booking_id}`, data); 

@@ -4,8 +4,8 @@ var bodyParser = require('body-parser')
 const router = express.Router()
 require('dotenv').config();
 
-const base_url = "http://10.104.15.67:3000/Room"
-// const base_url = process.env.API+"/Room";
+//const base_url = "http://10.104.15.67:3000/Room"
+const base_url = process.env.API+"/Room";
 
 
 router.get('/',async (req,res)=>{
